@@ -1,16 +1,13 @@
-from ez_setup import use_setuptools
-use_setuptools()
 from setuptools import setup
-
-import django_mqtt as meta
+import django_mqtt
 
 setup(name='django-mqtt',
       description='Send data to mqtt server as publisher.',
-      version='.'.join(map(str, meta.__version__)),
-      author=meta.__author__,
-      author_email=meta.__contact__,
-      url=meta.__homepage__,
-      license=meta.__license__,
+      version='.'.join(map(str, django_mqtt.__version__)),
+      author=django_mqtt.__author__,
+      author_email=django_mqtt.__contact__,
+      url=django_mqtt.__homepage__,
+      license=django_mqtt.__license__,
       keywords='django mqtt',
       classifiers=[
           "Framework :: Django",

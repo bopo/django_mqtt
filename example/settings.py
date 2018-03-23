@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django_mqtt.publisher',
 ]
 FIXTURE_DIRS = [
-    os.path.join(BASE_DIR, 'test_web', 'fixtures')
+    os.path.join(BASE_DIR, 'example', 'fixtures')
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -54,14 +54,14 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'test_web.urls'
+ROOT_URLCONF = 'example.urls'
 MQTT_CERTS_ROOT = os.path.join(BASE_DIR, 'private')
 MQTT_ACL_ALLOW = False
 MQTT_ACL_ALLOW_ANONIMOUS = MQTT_ACL_ALLOW
 MQTT_ALLOW_EMPTY_CLIENT_ID = False
 MQTT_SESSION_TIMEOUT = 5
 
-WSGI_APPLICATION = 'test_web.wsgi.application'
+WSGI_APPLICATION = 'example.wsgi.application'
 
 
 # Database

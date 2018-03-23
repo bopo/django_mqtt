@@ -8,7 +8,7 @@ import os
 
 class PublishTestCase(TestCase):
     def setUp(self):
-        self.ca_file = os.path.join(settings.BASE_DIR, 'test_web', 'ca', 'mosquitto.org.crt')
+        self.ca_file = os.path.join(settings.BASE_DIR, 'example', 'ca', 'mosquitto.org.crt')
         self.ca_cert_file = File(open(self.ca_file, 'rb'), 'mosquitto.org.crt')
 
     def tearDown(self):

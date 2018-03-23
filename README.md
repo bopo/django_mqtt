@@ -185,8 +185,8 @@ See the [mosquitto test server website](http://test.mosquitto.org/) for informat
 
 Setup your own MQTT for test
 ============================
-Run scripts [INSTALL.sh](test_web/INSTALL.sh) ```bash test_web/INSTALL.sh```
-and [CONFIGURE.sh](test_web/CONFIGURE.sh) ```bash test_web/CONFIGURE.sh```.
+Run scripts [INSTALL.sh](example/INSTALL.sh) ```bash example/INSTALL.sh```
+and [CONFIGURE.sh](example/CONFIGURE.sh) ```bash example/CONFIGURE.sh```.
 
 This script will be install and configure [mosquitto](http://www.mosquitto.org/),
 [mosquitto-auth-plug](https://github.com/jpmens/mosquitto-auth-plug), [gunicorn](http://www.gunicorn.org/),

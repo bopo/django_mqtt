@@ -10,7 +10,7 @@ echo "Configure VirtualEnv"
 echo "Install dependencies"
 virtualenv env
 env/bin/pip install pip --upgrade
-env/bin/pip install -r test_web/requirements.txt
+env/bin/pip install -r example/requirements.txt
 env/bin/pip install -r requirements.txt
 
 echo "Making directories"
@@ -20,19 +20,19 @@ env/bin/python manage.py collectstatic
 
 echo "
 RUN_DB_SERVER=True
-DJANGO_SETTINGS_MODULE=test_web.settings
-DJANGO_WSGI_MODULE=test_web.wsgi
+DJANGO_SETTINGS_MODULE=example.settings
+DJANGO_WSGI_MODULE=example.wsgi
 " >> env/bin/activate
 
 echo "Configure supervisor"
 echo "
 [program:django_mqtt]
-command = $PWD/env/bin/gunicorn test_web.wsgi:application -b 127.0.0.1:8000
+command = $PWD/env/bin/gunicorn example.wsgi:application -b 127.0.0.1:8000
 directory = $PWD/
 user = www-data
 autostart = true
 autorestart = true
-environment = DJANGO_SETTINGS_MODULE=\"test_web.settings\",DJANGO_WSGI_MODULE=\"test_web.wsgi\",RUN_DB_SERVER=\"True\"
+environment = DJANGO_SETTINGS_MODULE=\"example.settings\",DJANGO_WSGI_MODULE=\"example.wsgi\",RUN_DB_SERVER=\"True\"
 " > supervisor.conf
 sudo cp supervisor.conf /etc/supervisor/conf.d/django_mqtt.conf
 rm supervisor.conf
