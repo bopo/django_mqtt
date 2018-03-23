@@ -137,7 +137,7 @@ class Topic(SecureSave):
 
         iter_comp = iter(comp_parts)
         for part in my_parts:
-            compare = iter_comp.next()
+            compare = next(iter_comp)
             if part == WILDCARD_SINGLE_LEVEL:
                 if comp.is_wildcard() and compare == WILDCARD_MULTI_LEVEL:
                     return False
@@ -222,7 +222,7 @@ class ACL(models.Model):
         try:
             broadcast_topic = Topic.objects.get(name=WILDCARD_MULTI_LEVEL)
             broadcast = cls.objects.filter(topic=broadcast_topic)
-            if acc in dict(PROTO_MQTT_ACC).keys():
+            if acc in list(dict(PROTO_MQTT_ACC).keys()):
                 if broadcast.filter(acc=acc).exists():
                     broadcast_acl = broadcast.get(acc=acc)
                     allow = broadcast_acl.has_permission(user=user, password=password)

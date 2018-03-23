@@ -30,7 +30,7 @@ def has_permission(user, topic, acc=None, clientid=None):
         return allow
 
     acls = ACL.objects.filter(topic__name=topic)
-    if acc not in dict(PROTO_MQTT_ACC).keys():
+    if acc not in list(dict(PROTO_MQTT_ACC).keys()):
         acc = None
 
     if acc and acls.filter(acc=acc).exists():

@@ -33,9 +33,9 @@ class BasicAuthWithTopicTestCase(TestCase):
 
     def _test_no_login(self):
         data = self.get_post_data()
-        if 'password' in data.keys():
+        if 'password' in list(data.keys()):
             del (data['password'])
-        if 'username' in data.keys():
+        if 'username' in list(data.keys()):
             del (data['username'])
         return self.client.post(self.url_testing, data)
 

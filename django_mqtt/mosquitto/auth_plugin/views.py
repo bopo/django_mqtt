@@ -38,7 +38,7 @@ class Auth(View):
         except:
             acc = None
         allow = False
-        if topics.exists() and acc in dict(PROTO_MQTT_ACC).keys():
+        if topics.exists() and acc in list(dict(PROTO_MQTT_ACC).keys()):
             topic = topics.get()
             acls = ACL.objects.filter(acc=acc, topic=topic,
                                       password__isnull=False, password=data.get('password'))
